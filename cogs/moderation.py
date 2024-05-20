@@ -41,10 +41,10 @@ The WITU Team
       await ctx.send(f"I don't have the permissions to kick {member.name}.")
     except discord.HTTPException as e:
       await ctx.send(f"Failed to kick {member.name}. Reason: {e}")
-
+  
 
   # Verification
-  @commands.command()
+  @commands.command(name ="verify")
   async def verify(ctx, member: discord.Member, *, reason=None):
     """
     This function verifies a member by removing the "unverify" role and sends a welcome DM.
@@ -62,7 +62,6 @@ The WITU Team
     try:
       # Attempt to remove "unverify" role and get verified role
       unverified_role = discord.utils.get(ctx.guild.roles, name="unverify")
-      verified_role = discord.utils.get(ctx.guild.roles, name="verified")
       await member.remove_roles(unverified_role, reason=reason)
       await member.send(f"""#  Welcome to WITUnite! 
 
@@ -80,5 +79,5 @@ Once again, welcome aboard! We can't wait to see you thrive within the WITUnite 
       await ctx.send(f"Failed to verify {member.name} ({e})")
 
 
-def setup(bot): # Must have a setup function
-    bot.add_cog(ModerationCommands(bot))
+async def setup(bot): # Must have a setup function
+  await bot.add_cog(ModerationCommands(bot))
