@@ -8,7 +8,7 @@ class ModerationCommands(commands.Cog):
   # Kick Command with Reason Argument
   @commands.command()
   @commands.has_permissions(kick_members=True)  # Restricts command to users with "Kick Members" permission
-  async def kick(ctx, member: discord.Member, *, reason=None):
+  async def kick(self, ctx, member: discord.Member, *, reason=None):
     if member == ctx.author:
       await ctx.send("You cannot kick yourself!")
       return
@@ -45,7 +45,7 @@ The WITU Team
 
   # Verification
   @commands.command(name ="verify")
-  async def verify(ctx, member: discord.Member, *, reason=None):
+  async def verify(self, ctx, member: discord.Member, *, reason=None):
     """
     This function verifies a member by removing the "unverify" role and sends a welcome DM.
 
