@@ -63,15 +63,15 @@ The WITU Team
       # Attempt to remove "unverify" role and get verified role
       unverified_role = discord.utils.get(ctx.guild.roles, name="unverify")
       await member.remove_roles(unverified_role, reason=reason)
-      await member.send(f"""#  Welcome to WITUnite! 
+      await member.send(f"""#  🎉Welcome to WITUnite!🎉 
 
-Congratulations! You're now verified and officially part of our community.  
+Congratulations! You're now verified and officially part of our community. 🌟  
 
 To enhance your experience, please select your roles from the available options and take a moment to introduce yourself to fellow members. Your voice matters, and we're excited to have you here!
 
 If you have any questions or need assistance, don't hesitate to reach out to our friendly moderators. 
 
-Once again, welcome aboard! We can't wait to see you thrive within the WITUnite community. ✨
+Once again, welcome aboard! We can't wait to see you thrive within the WITUnite community. 💪✨
 """)
     except discord.Forbidden:
       await ctx.send(f"I don't have the permissions to verify {member.name}.")
